@@ -332,7 +332,7 @@ $(function(){
 				$('#download-count').html(parseInt($('#download-count').html())+1);
 			},
 			error: function () {
-				debug("获取Json数据失败");					
+				console.log("获取Json数据失败");					
 			}
 		});
 	})
@@ -348,7 +348,7 @@ $(function(){
 			$('#download-count').html(data.obj);
 		},
 		error: function () {
-			debug("获取Json数据失败");					
+			console.log("获取Json数据失败");					
 		}
 	});
 })
