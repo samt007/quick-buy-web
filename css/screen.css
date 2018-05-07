@@ -902,3 +902,14 @@ pre {
     margin-top: 0;
     color: #fff;
 }
+.quickbuy-nav>li>a {
+    color: #303030 !important;
+	/*font-size: 1.1em;*/
+}
+/*
+@media (min-width: 768px) {
+	.navbar-nav>li>a {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+}*/
