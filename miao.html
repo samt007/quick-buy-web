@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>一键购物助手 - 淘宝天猫下单助手</title>
+
+	<!-- CSS includes -->
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <!--<link href="css/theme.css" rel="stylesheet">-->
+	<link href="css/screen.css" rel="stylesheet" type="text/css">
+	<link href="https://v3.bootcss.com/assets/css/docs.min.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body style="background:#fff;">
+
+<!-- Navbar -->
+<nav class="navbar navbar-static-top bs-docs-nav">
+	<div class="container">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a href="#" title="一键购物助手 - 淘宝天猫下单助手">
+                <img class="logo" src="images/logo.png" alt="一键购物助手 - 淘宝天猫下单助手" style="width: 50px;" />
+            </a>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="index.html" class="smooth-scroll">主页</a></li>
+				<li><a href="buy.html">淘宝.天猫购物使用说明</a></li>
+				<li class="active"><a href="miao.html">秒杀助手使用说明</a></li>
+				<li><a href="installation.html">插件安装下载</a></li>
+				<li><a href="contact.html">联系我们</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+
+  <div class="bs-docs-header" id="content" tabindex="-1" style="padding-bottom:40px;"> 
+   <div class="container"> 
+    <h2>秒杀助手使用说明</h2> 
+    <p>开始尝试您的秒杀之旅！</p> 
+   </div> 
+  </div>
+
+  <div class="container bs-docs-container"> 
+   <div class="row"> 
+    <div class="col-md-9" role="main"> 
+     <!-- less.js isn't IE8-compatible and throws an exception during initialization, so our Blob compatibility check and error messaging code never get called in that case.
+  So we use a conditional comment instead to inform folks about the lack of IE8 support.
+--> 
+     <!--[if lt IE 9]>
+  <style>
+    .bs-customizer,
+    .bs-customizer-import,
+    .bs-docs-sidebar {
+      display: none;
+    }
+  </style>
+  <div class="alert alert-danger">
+    <strong>The Bootstrap Customizer does not support IE9 and below.</strong><br>
+    Please take a second to <a href="http://browsehappy.com/">upgrade to a more modern browser</a>.
+  </div>
+<![endif]--> 
+     <form class="bs-customizer"> 
+		<div class="bs-docs-section" id="miao-section"> 
+		   <h2 id="miao" class="page-header">秒杀助手使用说明</h2> 
+		   <p class="lead">该章节会具体介绍一键购物助手插件的秒杀助手功能的基本操作流程。</p> 
+		   <h4 id="miao-url">1. 打开淘宝秒杀专题网址</h4>
+		   <p>打开<a href="http://miaosha.taobao.com" target="_blank">淘宝秒杀</a>网址，先选择您要秒杀的物品。
+		   </br>然后，一键购物助手的秒杀助手功能界面会弹出来，如下图：</p>
+		   <div class="bs-example bs-example-modal">
+			<img class="img-responsive" src="images/miao/miao-01.jpg">
+		   </div>
+		   <h4 id="miao-main-confirm">2. 点击秒杀确认按钮</h4>
+		   <p>确认秒杀购买时间=淘宝的实际秒杀时间，即可以点击"确认预约秒杀"按钮，系统将进入秒杀购买流程！
+		   <br/>注意：为了操作方便，实际上默认的时间就是的淘宝秒杀时间。当然，最好确认一下，免得耽误了秒杀！</p>
+		   <div class="bs-callout bs-callout-warning" id="callout-modal-markup-placement">
+			<h5>注意，秒杀助手的主要购买流程如下：</h5>
+			<p>1.系统在秒杀前 60 秒会自动刷新，进入一键购物助手的秒杀助手验证码输入界面。
+			<br/>2.系统根据设定自动点击<秒杀抢宝>(刷新)按钮，直到可以秒杀。
+			<br/>3.系统再自动<span style="color:red;">放大验证图片</span>，并且可以方便您直接输入验证问题。
+			<br/>4.待您输入验证码的答案之后，按回车，即可秒杀购物！
+			<br/><strong style="color:red;">一句话概括该功能的作用：让您专注输入验证问题,别的事情系统都会自动做!</strong>
+			</p>
+		   </div>
+		   <div class="bs-example bs-example-modal">
+			<img class="img-responsive" src="images/miao/miao-02.jpg">
+		   </div>
+		   <h4 id="miao-main-verify">3. 等待输入秒杀验证码界面</h4>
+		   <p>当在秒杀前60秒，系统会自动进入等待输入验证码界面。这个界面是一键购物助手开发的界面，它依赖于淘宝秒杀，可以很好辅助您做秒杀输入。</p>
+		   <div class="bs-example bs-example-modal">
+			<img class="img-responsive" src="images/miao/miao-03.jpg">
+		   </div>
+		   <h4 id="miao-main-keyin">4. 到点秒杀，输入验证码，执行秒杀！</h4>
+		   <p>当淘宝验证码图片出现之后，一键购物助手能在毫秒级内将图片“移植”到自己的界面，然后放大显示。让您很方便输入对应的问题。
+		   <br/>当您输入答案之后，立刻按键盘的回车按钮，系统会自动在淘宝界面填入您输入的内容，并且自动提交！
+		   </p>
+		   <div class="bs-example bs-example-modal">
+			<img class="img-responsive" src="images/miao/miao-05.jpg">
+		   </div>
+		   <h4 id="miao-main-result">5. 成功or失败？看您手速以及网速等因素！</h4>
+		   <p>需要注意的是，这个插件只是可以做到辅助淘宝秒杀，但是绝对没办法保证可以帮你秒杀到物品。
+		   <br/>下面这个就是失败的案例，因为我输入答案速度太慢了。
+		   </p>
+		   <div class="bs-example bs-example-modal">
+			<img class="img-responsive" src="images/miao/miao-06.jpg">
+		   </div>
+		   <h4 id="miao-setting">6. 秒杀助手的设置</h4>
+		   <p>为方便用户的实际使用，这里对秒杀助手添加了一些配置。
+		   <br/>设置的维护界面：点击插件图标右键的选项-->秒杀助手设置页签
+		   <br/>需要注意的是，如果不清楚每个配置的作用，请尽量默认即可，不要尝试修改它，否则会带来一些未知的问题。
+		   </p>
+		   <div class="bs-callout bs-callout-warning" id="callout-modal-markup-placement">
+			   <p>下面说明几个配置的作用：
+			   <br/>提前刷新按钮时间(秒): 不宜设置太长，否则点击频率太高。也不宜设置过短，因为电脑肯定有时间差。
+			   <br/>自动抢宝每秒刷新次数: 就是每秒系统点击自动抢宝的按钮的次数。一般10次即可（就是100ms点击一次）。
+			   <br/>验证码图片样式: 按照您的系统，自定义验证码显示大小，一般不需要修改。
+			   </p>
+		   </div>
+		   <div class="bs-example bs-example-modal">
+			<img class="img-responsive" src="images/miao/miao-07.jpg">
+		   </div>
+		</div>
+		
+		<div class="bs-docs-section" id="miao-licence-section"> 
+		   <h2 id="miao-licence" class="page-header">秒杀助手的许可证</h2> 
+		   <p class="lead">秒杀助手的许可证的作用以及作者的目的。</p> 
+		   <h4 id="miao-licence-action">1. 秒杀助手许可证的作用</h4>
+		   <p>许可证的作用实际上就是控制秒杀助手的使用。当许可证过期（无效），那秒杀助手是不可以使用了。
+		   <br/>（注意：任何一个用户都有30天的试用期。）你可以联系作者续约您的使用期限。
+		   <br/>这里还是再强调一点：一键购物助手的秒杀助手功能是不收费的。限制的目的只是不想功能用得过于泛滥！
+		   <br/>许可证的维护界面：点击插件图标右键的选项-->秒杀助手设置-->秒杀助手许可证</p>
+		   <div class="bs-example bs-example-modal">
+			<img class="img-responsive" src="images/miao/miao-licence-01.jpg">
+		   </div>
+		   <h4 id="miao-licence-aim">2. 作者的目的</h4>
+		   <div class="bs-callout bs-callout-warning" id="callout-modal-markup-placement">
+			<h5>秒杀许可证的目的：</h5>
+			<p>秒杀助手许可证实际上就是作者用来控制秒杀助手功能使用的一个手段。
+			<br/>有了许可证，还不至于这个功能被滥用。因为这个工具相对来说确实有失公平性：没用插件的人估计是很难秒了（同样的手速的前提下）。
+			</p>
+		   </div>
+		</div>
+     </form> 
+    </div> 
+    <div class="col-md-3" role="complementary"> 
+	 <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
+      <ul class="nav bs-docs-sidenav"> 
+       <!-- NOTE: DO NOT EDIT THE FOLLOWING SECTION DIRECTLY! It is autogenerated via the `build-customizer-html` Grunt task using the customizer-nav.pug template.--> 
+       <li class=""><a href="#miao">秒杀助手使用说明</a>
+		   <ul class="nav"> 
+			 <li class=""><a href="#miao-url">1. 打开淘宝秒杀专题网址</a></li> 
+			 <li class=""><a href="#miao-main-confirm">2. 点击秒杀确认按钮</a></li> 
+			 <li class=""><a href="#miao-main-verify">3. 等待输入秒杀验证码界面</a></li> 
+			 <li class=""><a href="#miao-main-keyin">4. 输入验证码执行秒杀</a></li> 
+			 <li class=""><a href="#miao-main-result">5. 成功or失败？</a></li> 
+			 <li class=""><a href="#miao-setting">6. 秒杀助手的设置</a></li> 
+		   </ul>
+	   </li>
+	   <li class=""><a href="#miao-licence">秒杀助手的许可证</a>
+		   <ul class="nav"> 
+			 <li class=""><a href="#miao-licence-action">1. 秒杀助手许可证的作用</a></li> 
+			 <li class=""><a href="#miao-licence-aim">2. 作者的目的</a></li> 
+		   </ul>
+	   </li> 
+       <!-- NOTE: DO NOT EDIT THE PRECEDING SECTION DIRECTLY! It is autogenerated via the `build-customizer-html` Grunt task using the customizer-nav.pug template.--> 
+      </ul> 
+      <a class="back-to-top" href="#top"> 返回顶部 </a> 
+     </nav> 
+    </div> 
+   </div> 
+  </div>
+		
+		
+<footer class="main-footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="widget">
+					<h4 class="title">友链</h4>
+					<div class="content tag-cloud friend-links">
+						<a href="http://www.bootcss.com" title="Bootstrap中文网" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'Bootstrap中文网'])" target="_blank">Bootstrap中文网</a>
+						<a href="http://lodashjs.com/" title="Lodash中文文档" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'Lodash中文文档'])" target="_blank">Lodash中文文档</a>
+						<a href="https://www.jquery123.com/" title="jQuery中文文档" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'jQuery中文文档'])" target="_blank">jQuery中文文档</a>
+						<a href="https://www.webpackjs.com/" title="Webpack中文网" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'Webpack中文网'])" target="_blank">Webpack中文网</a>
+						<a href="https://www.nodeapp.cn/" title="Node.js中文文档" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'Node.js中文文档'])" target="_blank">Node.js中文文档</a>
+						<a href="https://www.quanzhanketang.com/" title="全栈课堂" onclick="_hmt.push(['_trackEvent', 'link', 'click', '全栈课堂'])" target="_blank">全栈课堂</a>
+						<a href="https://www.npmjs.com.cn/" title="NPM中文文档" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'NPM中文文档'])" target="_blank">NPM中文文档</a>
+						<a href="http://www.sasschina.com/" title="SASS中文网" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'SASS中文网'])" target="_blank">SASS中文网</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-4">
+				<div class="widget">
+					<h4 class="title">标签云</h4>
+					<div class="content tag-cloud">
+							<a href="/tag/javascript/">JavaScript</a>
+							<a href="/tag/promise/">Promise</a>
+							<a href="/tag/zhuti/">主题</a>
+							<a href="/tag/nodejs/">Node.js</a>
+							<a href="/tag/mysql/">MySQL</a>
+							<a href="/tag/nginx/">Nginx</a>
+							<a href="/tag/aliyun-ecs/">阿里云服务器</a>
+							<a href="/tag/ubuntu/">Ubuntu</a>
+							<a href="/tag/ghost-in-depth/">深度玩转 Ghost</a>
+							<a href="/tag/theme/">Theme</a>
+							<a href="/tag/zhu-shou-han-shu/">助手函数</a>
+							<a href="/tag/markdown/">Markdown</a>
+							<a href="/tag/proxy/">反向代理</a>
+
+						<a href="/tag-cloud/">...</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-4">
+				<div class="widget">
+					<h4 class="title">常用链接</h4>
+					<div class="content tag-cloud friend-links">
+						<a href="https://www.upyun.com/" title="又拍云" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'upyun'])" target="_blank">又拍云</a>
+						<a href="http://www.aliyun.com/" title="阿里云" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'aliyun'])" target="_blank">阿里云</a>
+						<a href="http://www.qiniu.com/" title="七牛云存储" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'qiniu'])" target="_blank">七牛云存储</a>
+					</div>
+			</div></div>
+		</div>
+	</div>
+</footer>
+
+<div class="copyright">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<span>Copyright © <a href="">一键购物助手</a></span> | 
+				<span><a href="" target="_blank">xxxx备xxxxxxx号</a></span> | 
+				<span>XXXXXXXX</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<a href="#" id="back-to-top" style="display: inline;"><i class="fa fa-angle-up"></i></a>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://v3.bootcss.com/assets/js/docs.min.js"></script>
+<!--<script type="text/javascript" src="js/shieldui-all.min.js"></script>-->
+
+</body>
+</html>
