@@ -98,11 +98,11 @@
 		   目前一键购物助手的最新版本是<code>v3.6.0</code>。 如果有问题请先核对您的版本是否最新版本！
 	   </div> 
        <div class="import-header"> 
-		<a href="https://samt007.github.io/quick-buy-web/crx/quick-buy v3.6.0.crx" class="" aria-hidden="true" download="">
+		<a id="download-app" href="https://samt007.github.io/quick-buy-web/crx/quick-buy v3.6.0.crx" class="" aria-hidden="true" download="">
 		<i class="glyphicon glyphicon-download-alt"></i>
 		</a>
        </div> 
-       <p class="lead">请点击上面的按钮下载最新的<code>v3.6.0</code>版本。更新日期：2018.5.7。</p> 
+       <p class="lead">请点击上面的按钮下载最新的版本。软件共下载次数：<span id="download-count"><span></p> 
       </div> 
      </div> 
      <form class="bs-customizer"> 
@@ -316,5 +316,42 @@
 <script src="https://v3.bootcss.com/assets/js/docs.min.js"></script>
 <!--<script type="text/javascript" src="js/shieldui-all.min.js"></script>-->
 
+<script type="text/javascript">
+$(function(){
+	$('#download-app').click(function(){
+		//alert(123);
+		$.ajax({
+			async:false,
+			type:'post', 
+			data:JSON.stringify({'version':'3.6.0'}),
+			contentType:'application/json;charset=UTF-8',
+			url:'http://jebms.xwtw.com:8888/quick-buy/fnd/quickbuyDownload',
+			dataType:'json',
+			success: function (data) {
+				console.log('新增下载记录！');
+				$('#download-count').html(parseInt($('#download-count').html())+1);
+			},
+			error: function () {
+				debug("获取Json数据失败");					
+			}
+		});
+	})
+	$.ajax({
+		async:false,
+		type:'get', 
+		data:'',
+		contentType:'application/json;charset=UTF-8',
+		url:'http://jebms.xwtw.com:8888/quick-buy/fnd/quickbuyDownload/getCount',
+		dataType:'json',
+		success: function (data) {
+			console.log('获取下载次数！');
+			$('#download-count').html(data.obj);
+		},
+		error: function () {
+			debug("获取Json数据失败");					
+		}
+	});
+})
+</script>
 </body>
 </html>
