@@ -45,7 +45,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a href="#" title="一键购物助手 - 淘宝天猫下单助手">
+			<a href="http://kqmai.com" title="一键购物助手 - 淘宝天猫下单助手">
                 <img class="logo" src="https://samt007.github.io/quick-buy-web/images/logo.png" alt="一键购物助手 - 淘宝天猫下单助手" style="width: 50px;" />
             </a>
 		</div>
@@ -95,7 +95,7 @@
 	   <div id="defaults-change-alert" class="alert alert-warning alert-dismissible" role="alert"> 
 		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> 
 		  <strong>注意！</strong> 
-		   目前一键购物助手的最新版本是<code>v3.6.0</code>。 如果有问题请先核对您的版本是否最新版本！
+		   目前一键购物助手的最新版本是<code id="app-version">v3.6.0</code>。 如果有问题请先核对您的版本是否最新版本！
 	   </div> 
        <div class="import-header"> 
 		<a id="download-app" href="https://samt007.github.io/quick-buy-web/crx/quick-buy v3.6.0.crx" class="" aria-hidden="true" download="">
@@ -301,9 +301,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				<span>Copyright © <a href="">一键购物助手</a></span> | 
-				<span><a href="" target="_blank">xxxx备xxxxxxx号</a></span> | 
-				<span>XXXXXXXX</span>
+				<span>Copyright © <a href="http://kqmai.com">一键购物助手</a> 2008-2018</span> 
+				<!--| <span><a href="" target="_blank">xxxx备xxxxxxx号</a></span> | -->
+				<!--<span>XXXXXXXX</span>-->
 			</div>
 		</div>
 	</div>
@@ -320,10 +320,11 @@
 $(function(){
 	$('#download-app').click(function(){
 		//alert(123);
+		var version=$('#app-version').html();
 		$.ajax({
-			async:false,
+			async:true,
 			type:'post', 
-			data:JSON.stringify({'version':'3.6.0'}),
+			data:JSON.stringify({'version':version}),
 			contentType:'application/json;charset=UTF-8',
 			url:'http://jebms.xwtw.com:8888/quick-buy/fnd/quickbuyDownload',
 			dataType:'json',
@@ -337,7 +338,7 @@ $(function(){
 		});
 	})
 	$.ajax({
-		async:false,
+		async:true,
 		type:'get', 
 		data:'',
 		contentType:'application/json;charset=UTF-8',
