@@ -95,10 +95,10 @@
 	   <div id="defaults-change-alert" class="alert alert-warning alert-dismissible" role="alert"> 
 		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> 
 		  <strong>注意！</strong> 
-		   目前一键购物助手的最新版本是<code id="app-version">v3.6.1</code>。 如果有问题请先核对您的版本是否最新版本！
+		   目前一键购物助手的最新版本是<code id="app-version">v3.6.2</code>。 如果有问题请先核对您的版本是否最新版本！
 	   </div> 
        <div class="import-header"> 
-		<a id="download-app" href="https://samt007.github.io/quick-buy-web/crx/quick-buy v3.6.1.crx" class="" aria-hidden="true" download="">
+		<a id="download-app" href="https://samt007.github.io/quick-buy-web/crx/quick-buy v3.6.2.crx" class="" aria-hidden="true" download="">
 		<i class="glyphicon glyphicon-download-alt"></i>
 		</a>
        </div> 
@@ -326,7 +326,7 @@ $(function(){
 			type:'post', 
 			data:JSON.stringify({'version':version}),
 			contentType:'application/json;charset=UTF-8',
-			url:'http://jebms.xwtw.com:8888/quick-buy/fnd/quickbuyDownload',
+			url:'http://erptest.xinyiglass.com:8000/quick-buy/fnd/quickbuy/download',
 			dataType:'json',
 			success: function (data) {
 				console.log('新增下载记录！');
@@ -342,11 +342,11 @@ $(function(){
 		type:'get', 
 		data:'',
 		contentType:'application/json;charset=UTF-8',
-		url:'http://jebms.xwtw.com:8888/quick-buy/fnd/quickbuyDownload/getCount',
+		url:'http://erptest.xinyiglass.com:8000/quick-buy/fnd/quickbuy/download/getCount',
 		dataType:'json',
 		success: function (data) {
 			console.log('获取下载次数！');
-			$('#download-count').html(data.obj);
+			$('#download-count').html(data.data);
 		},
 		error: function () {
 			console.log("获取Json数据失败");					
