@@ -52,9 +52,9 @@ $(function(){
 	  title: false,
 	  closeBtn: 1, //显示关闭按钮
 	  shade: [0],
-	  area: ['450px', '300px'],
+	  area: ['400px', '300px'],
 	  offset: 'rb', //右下角弹出
-	  time: 20000, //20秒后自动关闭
+	  time: 4000, //自动关闭
 	  shadeClose: true,
 	  anim: 2,
 	  content: '<div id="qiang-ad"><img style="-webkit-user-select:none; width:450px; height:300px;cursor:pointer;" src="https://samt007.github.io/quick-buy-web/images/qiang-ad.jpg"></div>', //['images/qiang-ad.jpg', 'no'], //iframe的url，no代表不显示滚动条

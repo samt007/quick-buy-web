@@ -44,9 +44,17 @@
 .order-item  .amount .qiang-amount{
 	/*font-size: 20px;*/
 }
+@media (min-width: 768px) {
+	.order-item .thumbnail{
+		min-height: 339px;
+	}
+}
 
-.order-item .thumbnail{
-	min-height: 339px;
+@media (max-width: 768px) {
+	.order-item{
+		padding-right: 5px;
+		padding-left: 5px;
+	}
 }
 
 .red-color {
