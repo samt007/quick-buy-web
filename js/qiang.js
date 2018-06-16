@@ -57,7 +57,7 @@ $(function(){
 	  time: 20000, //20秒后自动关闭
 	  shadeClose: true,
 	  anim: 2,
-	  content: '<div id="qiang-ad"><img style="-webkit-user-select:none; width:450px; height:300px;cursor:pointer;" src="./images/qiang-ad.jpg"></div>', //['images/qiang-ad.jpg', 'no'], //iframe的url，no代表不显示滚动条
+	  content: '<div id="qiang-ad"><img style="-webkit-user-select:none; width:450px; height:300px;cursor:pointer;" src="https://samt007.github.io/quick-buy-web/images/qiang-ad.jpg"></div>', //['images/qiang-ad.jpg', 'no'], //iframe的url，no代表不显示滚动条
 	  success: function(layero, index){
 		  //console.log(layero, index);
 		  //$(layero).find('img').css({"width":'340px',"height":'215px'})
