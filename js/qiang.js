@@ -46,29 +46,31 @@ $(function(){
 	
 	$('#page-num li')[1].getElementsByTagName('a')[0].click();
 	
-	//倒计时的广告
-	layer.open({
-	  type: 1,
-	  title: false,
-	  closeBtn: 1, //显示关闭按钮
-	  shade: [0],
-	  area: ['400px', '300px'],
-	  offset: 'rb', //右下角弹出
-	  time: 4000, //自动关闭
-	  shadeClose: true,
-	  anim: 2,
-	  content: '<div id="qiang-ad"><img style="-webkit-user-select:none; width:450px; height:300px;cursor:pointer;" src="https://samt007.github.io/quick-buy-web/images/qiang-ad.jpg"></div>', //['images/qiang-ad.jpg', 'no'], //iframe的url，no代表不显示滚动条
-	  success: function(layero, index){
-		  //console.log(layero, index);
-		  //$(layero).find('img').css({"width":'340px',"height":'215px'})
-		  $('#qiang-ad').on('click',function(){
-			  window.open('https://pan.baidu.com/s/1Xc6riV2eHfJorUIGXZVxwA');
-		  })
-		  $('#layui-layer-shade2').css('display','none');
-	  },
-	  end: function(){ //此处用于演示
-	  }
-	});
+	//倒计时的广告，只在电脑端显示
+	if (document.body.clientWidth>=768){
+		layer.open({
+		  type: 1,
+		  title: false,
+		  closeBtn: 1, //显示关闭按钮
+		  shade: [0],
+		  area: ['400px', '300px'],
+		  offset: 'rb', //右下角弹出
+		  time: 3000, //自动关闭
+		  shadeClose: true,
+		  anim: 2,
+		  content: '<div id="qiang-ad"><img style="-webkit-user-select:none; width:400px; height:300px;cursor:pointer;" src="https://samt007.github.io/quick-buy-web/images/qiang-ad.jpg"></div>', //['images/qiang-ad.jpg', 'no'], //iframe的url，no代表不显示滚动条
+		  success: function(layero, index){
+			  //console.log(layero, index);
+			  //$(layero).find('img').css({"width":'340px',"height":'215px'})
+			  $('#qiang-ad').on('click',function(){
+				  window.open('https://pan.baidu.com/s/1Xc6riV2eHfJorUIGXZVxwA');
+			  })
+			  $('#layui-layer-shade2').css('display','none');
+		  },
+		  end: function(){ //此处用于演示
+		  }
+		});
+	}
 })
 // 例子： 
 // (new Date()).format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423 
