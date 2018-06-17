@@ -2,7 +2,7 @@ $(function(){
 	window.T = window.t;
 	console.log('init!');
 	window.activePageNum = 0;
-	window.pageSize = 16;
+	window.pageSize = 20;
 	//ajaxGetQiangPage(activePageNum,pageSize);
 	$('#page-num ul a').on('click',function(e){
 		var $cur=$(e.target),toPageNum;
@@ -55,7 +55,7 @@ $(function(){
 		  shade: [0],
 		  area: ['400px', '300px'],
 		  offset: 'rb', //右下角弹出
-		  time: 3000, //自动关闭
+		  time: 4500, //自动关闭
 		  shadeClose: true,
 		  anim: 2,
 		  content: '<div id="qiang-ad"><img style="-webkit-user-select:none; width:400px; height:300px;cursor:pointer;" src="https://samt007.github.io/quick-buy-web/images/qiang-ad.jpg"></div>', //['images/qiang-ad.jpg', 'no'], //iframe的url，no代表不显示滚动条
@@ -126,7 +126,7 @@ function ajaxGetQiangPage(pageNum,pageSize,callback){
 			layer.close(load);
 		},
 		error: function (e) {
-			alert("获取倒计时数据失败！"+JSON.stringify(e));		
+			alert("提示：获取倒计时数据失败！请稍后重试！");		
 			layer.close(load);
 		}
 	});

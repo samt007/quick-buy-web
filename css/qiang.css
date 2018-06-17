@@ -44,6 +44,18 @@
 .order-item  .amount .qiang-amount{
 	/*font-size: 20px;*/
 }
+
+.order-item  .thumbnail{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.order-item  h5{
+    height: 36px;
+    overflow: hidden;
+}
+
 @media (min-width: 768px) {
 	.order-item .thumbnail{
 		min-height: 339px;
@@ -54,6 +66,9 @@
 	.order-item{
 		padding-right: 5px;
 		padding-left: 5px;
+	}
+	.order-item .thumbnail{
+		min-height: 300px;
 	}
 }
 
