@@ -3,7 +3,13 @@ $(function(){
 	console.log('init!');
 	window.activePageNum = 0;
 	window.pageSize = 20;
-	//ajaxGetQiangPage(activePageNum,pageSize);
+	var condition = {};
+	$('#query-startsTimeF').val(getNextHour().format('yyyy-MM-dd hh')+':00:00');
+	$('#query-startsTimeT').val(getNextHour().format('yyyy-MM-dd hh')+':00:00');
+	if(window.location.href.indexOf('permission=admin')===-1){
+		$('#query-startsTimeF').attr("disabled","disabled");
+		$('#query-startsTimeT').attr("disabled","disabled");
+	}
 	$('#page-num ul a').on('click',function(e){
 		var $cur=$(e.target),toPageNum;
 		if ($cur.parent().hasClass('disabled')) return false;
@@ -12,42 +18,49 @@ $(function(){
 		toPageNum===undefined && (toPageNum=parseInt($cur.html()));
 		console.log('old activePageNum:'+activePageNum+',toPageNum:'+toPageNum);
 		if(toPageNum <=0 || activePageNum == toPageNum) return;
-		ajaxGetQiangPage(toPageNum,pageSize,function(data){
+		ajaxGetQiangPage(toPageNum,pageSize,condition,function(data){
 			//显示前端页面
-			//console.log(data);
 			setTimeout(function(){$('#back-to-top')[0].click();},10);
 			data.list.length == 0 && alert('该页（'+toPageNum+'）无数据！');
 			data.pageNum !== toPageNum && alert('该页'+toPageNum+'无数据！系统自动切到第'+data.pageNum+'页');
 			activePageNum = data.pageNum;
 			console.log('new activePageNum:'+activePageNum);
-			$('#page-num li').removeClass('disabled').removeClass('active');//下面的代码是处理页面的样式。
-			if(activePageNum<=3){
-				for(var i=1;i<=5;i++){
-					$($('#page-num li')[i]).find('a').html(i);
-				}
-				$($('#page-num li')[activePageNum]).addClass('active');
-			}else{
-				for(var i=1;i<=5;i++){
-					$($('#page-num li')[i]).find('a').html(activePageNum-3+i);
-					i==3 && $($('#page-num li')[i]).addClass('active');
-				}
-			}
-			activePageNum == 1 && $($('#page-num li')[0]).addClass('disabled');//第一页要失效上一页
-			if(data.list.length<pageSize){//说明已经到了最后一页了，需要将后面的页数都失效
-				for(var i=1;i<=5;i++){
-					var dealPageNum = parseInt($($('#page-num li')[i]).find('a').html());
-					//console.log(dealPageNum);
-					dealPageNum > activePageNum && $($('#page-num li')[i]).addClass('disabled');
-				}
-				$($('#page-num li')[6]).addClass('disabled');//下一页也要失效
-			}
+			dealPageNum(data.list.length);
 		})
 	})
 	
 	$('#page-num li')[1].getElementsByTagName('a')[0].click();
 	
+	$('#query-btn').on('click',function(){
+		condition.title = $('#query-title').val()||'';
+		if(condition.title) condition.title = '%'+condition.title+'%';
+		condition.startsTimeF=$('#query-startsTimeF').val();
+		condition.startsTimeT=$('#query-startsTimeT').val();
+		condition.couponFlag=$('#query-couponFlag').val();
+		if($('#query-recommendFlag').prop("checked")){
+			condition.recommendFlag="Y";
+		}else{
+			condition.recommendFlag="";
+		}
+		//console.log(condition);
+		ajaxGetQiangPage(1,pageSize,condition,function(data){
+			data.list.length == 0 && alert('该页（'+toPageNum+'）无数据！');
+			activePageNum = data.pageNum;
+			dealPageNum(data.list.length);
+		});
+	})
+	
+	$('#query-btn-more').on('click',function(){
+		$('.more-part').toggleClass('show-more-part');
+	})
+	
+	$('#query-form').on('submit',function(){
+		$('#query-btn')[0].click();
+		return false;
+	})
+	
 	//倒计时的广告，只在电脑端显示
-	if (document.body.clientWidth>=768){
+	if (false && document.body.clientWidth>=768){
 		layer.open({
 		  type: 1,
 		  title: false,
@@ -95,24 +108,41 @@ function getNextHour(){
 	console.log('next hour:',new Date(nextHourTime).format("yyyy-MM-dd hh:mm:ss"));
 	return new Date(nextHourTime);
 }
-function ajaxGetQiangPage(pageNum,pageSize,callback){
+function objToUrl(j) {
+	var k = [];
+	for (var a in j) {
+		k.push(a + "=" + (j[a] || "").toString())
+	}
+	return k.join("&")
+}
+function ajaxGetQiangPage(pageNum,pageSize,condition,callback){
 	var load = layer.load(2, {
 		shade: [0.5,'#fff'] //0.1透明度的白色背景
 	});
-	var url = 'http://jebms.xwtw.com:8888/quick-buy/fnd/quickbuy/qiang/getPage';//'http://192.168.88.123:8088/quick-buy/fnd/quickbuy/qiang/getPage';
+	//var url = 'http://192.168.88.123:8088/quick-buy/fnd/quickbuy/qiang/getPage';
+	var url = 'http://jebms.xwtw.com:8888/quick-buy/fnd/quickbuy/qiang/getPage';
 	$.ajax({
 		async:true,
-		type:'post', 
-		data:JSON.stringify({"startsTime": (getNextHour().format('yyyy-MM-dd hh')+':00:00')
-				,"source": "1"
-				,"pageSize":pageSize
-				,"pageNum":pageNum
-				,"quantityF": 1
-				}),
+		type:'get', 
+		data: objToUrl({
+			"startsTimeF": condition.startsTimeF ||(getNextHour().format('yyyy-MM-dd hh')+':00:00')
+			,"startsTimeT": condition.startsTimeT ||(getNextHour().format('yyyy-MM-dd hh')+':00:00')
+			,"source": "1"
+			,"pageSize":pageSize
+			,"pageNum":pageNum
+			,"quantityF": 1
+			,"couponFlag": condition.couponFlag||""
+			,"paimaiFlag": condition.paimaiFlag||"N"
+			,"recommendFlag": condition.recommendFlag||""
+			,"title": condition.title ? encodeURI(condition.title):""
+			,"token": "1qaz3edc5tgb7ujm9ol"
+			}),
 		contentType:'application/json;charset=UTF-8',
 		url: url,
 		dataType:'json',
+		timeout: 3000, //超时时间：3秒
 		success: function (data) {
+			layer.close(load);
 			console.log('获取第'+pageNum+'页');
 			if(data.code=='0'){
 				var list = {"list": data.data.list}
@@ -123,11 +153,34 @@ function ajaxGetQiangPage(pageNum,pageSize,callback){
 			}else{
 				alert('获取数据失败！错误信息：'+data.message);
 			}
-			layer.close(load);
 		},
-		error: function (e) {
-			alert("提示：获取倒计时数据失败！请稍后重试！");		
+		error: function (e) {		
 			layer.close(load);
+			alert("提示：获取倒计时数据失败！请稍后重试！");
 		}
 	});
+}
+function dealPageNum(dataLength){//处理分页显示
+	$('#page-num li').removeClass('disabled').removeClass('active');//下面的代码是处理页面的样式。
+	if(activePageNum<=3){
+		for(var i=1;i<=5;i++){
+			$($('#page-num li')[i]).find('a').html(i);
+		}
+		$($('#page-num li')[activePageNum]).addClass('active');
+	}else{
+		for(var i=1;i<=5;i++){
+			$($('#page-num li')[i]).find('a').html(activePageNum-3+i);
+			i==3 && $($('#page-num li')[i]).addClass('active');
+		}
+	}
+	activePageNum == 1 && $($('#page-num li')[0]).addClass('disabled');//第一页要失效上一页
+	if(dataLength<pageSize){//说明已经到了最后一页了，需要将后面的页数都失效
+		for(var i=1;i<=5;i++){
+			var dealPageNum = parseInt($($('#page-num li')[i]).find('a').html());
+			//console.log(dealPageNum);
+			dealPageNum > activePageNum && $($('#page-num li')[i]).addClass('disabled');
+		}
+		$($('#page-num li')[6]).addClass('disabled');//下一页也要失效
+	}
+	
 }

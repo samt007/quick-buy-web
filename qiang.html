@@ -84,6 +84,36 @@
 </div>
   
 <div class="container">
+	<div class="row" id="query">
+		<form class="form-inline" style="text-align:center;" id="query-form">
+		  <div class="form-group" style="margin-bottom:0;">
+			<label for="query-title">商品标题：</label>
+			<input type="text" class="form-control" name="query-title" id="query-title" placeholder="商品标题条件..." style="min-width:280px;padding-right:10px;">
+			<a class="btn btn-primary" id="query-btn" style="min-width:75px;line-height: 1.3;">搜&nbsp;&nbsp;索</a>
+			<a class="btn" id="query-btn-more" style="color:red; text-decoration:underline;">更多条件</a>
+		  </div>
+		  <div class="more-part">
+			  <div class="form-group" style="margin-right:10px;">
+				<label for="query-startsTime">抢购时间：</label>
+				<input type="text" class="form-control input-sm" name="query-startsTimeF" id="query-startsTimeF">&nbsp;至&nbsp;
+				<input type="text" class="form-control input-sm" name="query-startsTimeT" id="query-startsTimeT">
+			  </div>
+			  <div class="form-group" style="margin-right:10px;">
+				<label for="query-title">优惠卷：</label>
+				<select class="form-control input-sm" name="query-couponFlag" id="query-couponFlag">
+				  <option value="">全部显示</option>
+				  <option value="N">不显示优惠卷</option>
+				  <option value="Y">只显示优惠卷</option>
+				</select>
+			  </div>
+			  <div class="checkbox">
+				<label>
+				  <input type="checkbox" id="query-recommendFlag">只看推荐？</input>
+				</label>
+			  </div>
+		  </div>
+		</form>
+	</div>
 	<div class="row" id="qiang-list">
 		<!--通过模版自动填充！-->
 	</div>

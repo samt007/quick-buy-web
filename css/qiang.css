@@ -86,5 +86,22 @@
 #page-num ul{
 	cursor: pointer;
 }
+#query{
+	margin-bottom: 10px;
+    margin-right: 0;
+    margin-left: 0;
+}
+#query .btn-default:hover{
+	background: #e67e22;
+	border:1px solid red;
+	color: #ffffff;
+}
 
-
+.more-part{
+	display:none;
+	padding-top:10px;
+	/*margin-bottom:10px;*/
+}
+.show-more-part{
+	display:block;
+}
