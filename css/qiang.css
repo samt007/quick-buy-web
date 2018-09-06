@@ -30,9 +30,17 @@
     bottom: 0;*/
 }
 
-.order-item  .price .qiang-price{
-	font-size: 20px;
-} 
+@media (min-width: 769px) {
+	.order-item  .price .qiang-price{
+		font-size: 20px;
+	} 
+}
+
+@media (max-width: 768px) {
+	.order-item  .price .qiang-price{
+		font-size: 17px;
+	} 
+}
 
 .order-item  .amount{
 	color: #888;

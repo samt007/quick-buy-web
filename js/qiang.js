@@ -5,7 +5,7 @@ $(function(){
 	window.pageSize = 20;
 	var condition = {};
 	$('#query-startsTimeF').val(getNextHour().format('yyyy-MM-dd hh')+':00:00');
-	$('#query-startsTimeT').val(getNextHour().format('yyyy-MM-dd hh')+':00:00');
+	$('#query-startsTimeT').val(getNextHour().format('yyyy-MM-dd hh')+':59:59');
 	if(window.location.href.indexOf('permission=admin')===-1){
 		$('#query-startsTimeF').attr("disabled","disabled");
 		$('#query-startsTimeT').attr("disabled","disabled");
@@ -21,8 +21,8 @@ $(function(){
 		ajaxGetQiangPage(toPageNum,pageSize,condition,function(data){
 			//显示前端页面
 			setTimeout(function(){$('#back-to-top')[0].click();},10);
-			data.list.length == 0 && alert('该页（'+toPageNum+'）无数据！');
-			data.pageNum !== toPageNum && alert('该页'+toPageNum+'无数据！系统自动切到第'+data.pageNum+'页');
+			data.list.length == 0 && layer.msg('该页（'+toPageNum+'）无数据！');
+			data.pageNum !== toPageNum && layer.msg('该页'+toPageNum+'无数据！系统自动切到第'+data.pageNum+'页');
 			activePageNum = data.pageNum;
 			console.log('new activePageNum:'+activePageNum);
 			dealPageNum(data.list.length);
@@ -44,7 +44,7 @@ $(function(){
 		}
 		//console.log(condition);
 		ajaxGetQiangPage(1,pageSize,condition,function(data){
-			data.list.length == 0 && alert('该页（'+toPageNum+'）无数据！');
+			data.list.length == 0 && layer.msg('该页（1）无数据！');
 			activePageNum = data.pageNum;
 			dealPageNum(data.list.length);
 		});
@@ -116,17 +116,21 @@ function objToUrl(j) {
 	return k.join("&")
 }
 function ajaxGetQiangPage(pageNum,pageSize,condition,callback){
-	var load = layer.load(2, {
-		shade: [0.5,'#fff'] //0.1透明度的白色背景
+	var load = layer.load(0, {
+		shade: [0.4,'#fff'], //0.1透明度的白色背景
+		success: function(layero){
+			console.log(layero);
+			$(layero).css({'width':'60px','left':'49%'});
+		}
 	});
 	//var url = 'http://192.168.88.123:8088/quick-buy/fnd/quickbuy/qiang/getPage';
-	var url = 'http://jebms.xwtw.com:8888/quick-buy/fnd/quickbuy/qiang/getPage';
+	var url = 'http://59.36.15.120:8889/quick-buy/fnd/quickbuy/qiang/getPage';
 	$.ajax({
 		async:true,
 		type:'get', 
 		data: objToUrl({
 			"startsTimeF": condition.startsTimeF ||(getNextHour().format('yyyy-MM-dd hh')+':00:00')
-			,"startsTimeT": condition.startsTimeT ||(getNextHour().format('yyyy-MM-dd hh')+':00:00')
+			,"startsTimeT": condition.startsTimeT ||(getNextHour().format('yyyy-MM-dd hh')+':59:59')
 			,"source": "1"
 			,"pageSize":pageSize
 			,"pageNum":pageNum
@@ -151,12 +155,12 @@ function ajaxGetQiangPage(pageNum,pageSize,condition,callback){
 				$("#qiang-list").html(qiangListHtml);
 				callback && callback(data.data);
 			}else{
-				alert('获取数据失败！错误信息：'+data.message);
+				layer.alert('获取数据失败！错误信息：'+data.message);
 			}
 		},
 		error: function (e) {		
 			layer.close(load);
-			alert("提示：获取倒计时数据失败！请稍后重试！");
+			layer.alert("提示：获取倒计时数据失败！请稍后重试！");
 		}
 	});
 }
