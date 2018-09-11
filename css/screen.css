@@ -913,3 +913,7 @@ pre {
 		padding-bottom: 20px;
 	}
 }*/
+.quickbuy-nav .label {
+	padding: .3em .45em .3em;
+	font-size: 50%;
+}
