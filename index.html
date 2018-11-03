@@ -246,12 +246,17 @@
 <script type="text/javascript" src="https://samt007.github.io/quick-buy-web/lib/layer/layer.js"></script>
 
 <script type="text/javascript">
+	!sessionStorage['alertTimes'] && (sessionStorage['alertTimes'] = 0);
+	console.log('alertTimes',sessionStorage['alertTimes']);
     jQuery(function($) {
-		showAlert('<span style="color:red">警告：<br/><b>安全第一，谨防盗版！</b>鉴于最近在咸鱼有出售盗版插件，存在一定的安全隐患，已经严重影响到本插件的声誉。'+
-		'<br/>鉴于安全性的考虑，插件启用了用户系统。之前的用户已经修改密码！如需继续使用，请加QQ群：236120772 咨询。'+
-		'<br/>提示：3.7.0版本已经发布(2018.11.3)！</span>',function(idx){
-			layer.close(idx)
-		});
+		if (parseInt(sessionStorage['alertTimes'])==0) {
+			showAlert('<span style="color:red">警告：<br/><b>安全第一，谨防盗版！</b>鉴于最近在咸鱼有出售盗版插件，存在一定的安全隐患，已经严重影响到本插件的声誉。'+
+			'<br/>鉴于安全性的考虑，插件启用了用户系统。之前的用户已经修改密码！如需继续使用，请加QQ群：236120772 咨询。'+
+			'<br/>提示：3.7.0版本已经发布(2018.11.3)！</span>',function(idx){
+				layer.close(idx)
+			});
+			sessionStorage['alertTimes']=parseInt(sessionStorage['alertTimes'])+1;
+		};
     });
 	function showAlert(msg,callback){
 		layer.alert(msg,{zIndex:9999999991},callback)
