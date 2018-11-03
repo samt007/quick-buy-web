@@ -14,6 +14,7 @@
 	<link href="https://samt007.github.io/quick-buy-web/css/screen.css" rel="stylesheet" type="text/css">
 	<!--<link href="css/screen.css" rel="stylesheet" type="text/css">-->
 	<link rel="SHORTCUT ICON" href="https://samt007.github.io/quick-buy-web/images/favicon.ico">
+	<style type="text/css" src="https://samt007.github.io/quick-buy-web/lib/layer/theme/default/layer.css"></style>
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -92,6 +93,7 @@
 			它可以有效辅助您进行一键预约购买淘宝天猫的商品，并且附带辅助秒杀的功能。
 			<br/><b>尤其适用于天猫倒计时商品的抢购，以及双11，618等购物狂欢节期间的预约下单购物！</b>
 			<br/>它承诺永久免费；而且，功能的运行方式是基于浏览器的插件，所以它<b>更安全，轻便，更适合大众玩家！</b>
+			<br/><span style="font-weight:bold;color:red;">安全第一，谨防盗版。请注意要从官网链接 http://kqmai.com 下载的版本才是正版！<span>
 			</p>
 		</div>
         <div class="row md-center" style="margin-top: 40px;">
@@ -139,7 +141,7 @@
 				<h1>插件安装说明</h1>
 				<hr style="border-color:#83C653; border-width: 2px" width="10%">
 				<p>插件推荐使用360浏览器或者QQ浏览器。</p>
-				<div><strong>手动安装一键购物助手插件。目前最新版本：v3.6.9</strong></div>
+				<div><strong>手动安装一键购物助手插件。目前最新版本：v3.7.0</strong></div>
 				<div>（适用QQ浏览器，360浏览器，淘宝浏览器、搜狗浏览器、猎豹浏览器等）</div>
 				<a class="btn btn-warning btn-lg" style="margin:10px;" href="installation.html" target="_blank" role="button" onclick="_hmt.push(['_trackEvent', 'masthead', 'click', '插件安装教程'])">点我查看安装教程</a>
 			</div>
@@ -241,11 +243,19 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://samt007.github.io/quick-buy-web/lib/layer/layer.js"></script>
 
 <script type="text/javascript">
     jQuery(function($) {
-
+		showAlert('<span style="color:red">警告：<br/><b>安全第一，谨防盗版！</b>鉴于最近在咸鱼有出售盗版插件，存在一定的安全隐患，已经严重影响到本插件的声誉。'+
+		'<br/>鉴于安全性的考虑，插件启用了用户系统。之前的用户已经修改密码！如需继续使用，请加QQ群：236120772 咨询。'+
+		'<br/>提示：3.7.0版本已经发布(2018.11.3)！</span>',function(idx){
+			layer.close(idx)
+		});
     });
+	function showAlert(msg,callback){
+		layer.alert(msg,{zIndex:9999999991},callback)
+	}
 </script>
 
 </body>

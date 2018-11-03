@@ -14,6 +14,7 @@
 	<link href="https://samt007.github.io/quick-buy-web/css/docs.min.css" rel="stylesheet">
 	<link href="https://samt007.github.io/quick-buy-web/css/screen.css" rel="stylesheet" type="text/css">
 	<link rel="SHORTCUT ICON" href="https://samt007.github.io/quick-buy-web/images/favicon.ico">
+	<style type="text/css" src="https://samt007.github.io/quick-buy-web/lib/layer/theme/default/layer.css"></style>
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -85,6 +86,18 @@
 
   <div class="container bs-docs-container"> 
    <div class="bs-docs-section" style="font-size:14px;">  
+	   <div>
+		  <h3>v3.7.0版本更新：重大亮点更新！玩转双11，购物车抢购更快速！！！！！！（2018.11.03）</h3> 
+		  <p>1 添加自动保持登录状态的功能，正常应该可以保持1天左右的登录状态！这样子其实是很方便的，至少一天内不用担心由于未登录而无法秒杀了！！！
+		  <br/>2 添加下单的时候，自动将用户所选择的售后服务的参数带到下单页面的功能。
+		  <br/>3 (未开放，要用请联系作者)重点功能：添加购物车极速下单功能！将购物车的商品直接自动跳转到手机H5的确认订单界面，跳过H5购物车页面跳转的环节，极速下单，可以说非常完美的。
+		  <br/>  <span style="color:red">需要注意：购物车极速下单只支持天猫订单！淘宝订单下单会出现找不到商品的错误。请注意。</span>
+		  <br/>4 添加自动下单的自动勾选条款并确认条款的功能。
+		  <br/>  相当于定金的订单都可以支持自动一键下单啦！
+		  <br/>5 统一修改用户名和密码，请加群看公告。用户名不通过的话，无法使用插件！
+		  <br/>6 细节的改动，优化代码，优化UI。
+		  </p>
+	   </div>
 	   <div>
 		  <h3>v3.6.9版本更新：代码加密和压缩（2018.10.14）</h3> 
 		  <p>1 修正服务器没数据返回的时候，无法使用插件的bug。
@@ -339,7 +352,15 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://samt007.github.io/quick-buy-web/js/docs.min.js"></script>
+<script type="text/javascript" src="https://samt007.github.io/quick-buy-web/lib/layer/layer.js"></script>
 <!--<script type="text/javascript" src="js/shieldui-all.min.js"></script>-->
-
+<script type="text/javascript">
+    jQuery(function($) {
+		showAlert('提示：2018.11.03，一键购物助手v3.7.0版本更新：重大亮点更新！玩转双11，购物车抢购更快速！！！！！！请自行下载。');
+    });
+	function showAlert(msg,callback){
+		layer.alert(msg,{zIndex:9999999991},callback)
+	}
+</script>
 </body>
 </html>
