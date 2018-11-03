@@ -4,8 +4,8 @@ $(function(){
 	window.activePageNum = 0;
 	window.pageSize = 20;
 	var condition = {};
-	$('#query-startsTimeF').val(getNextHour().format('yyyy-MM-dd hh')+':00:00');
-	$('#query-startsTimeT').val(getNextHour().format('yyyy-MM-dd hh')+':59:59');
+	$('#query-startsTimeF').val(new Date().format('yyyy-MM-dd hh:mm:ss'));
+	$('#query-startsTimeT').val(getNextHour5().format('yyyy-MM-dd hh')+':59:59');
 	if(window.location.href.indexOf('permission=admin')===-1){
 		$('#query-startsTimeF').attr("disabled","disabled");
 		$('#query-startsTimeT').attr("disabled","disabled");
@@ -108,6 +108,11 @@ function getNextHour(){
 	console.log('next hour:',new Date(nextHourTime).format("yyyy-MM-dd hh:mm:ss"));
 	return new Date(nextHourTime);
 }
+function getNextHour5(){
+	var nextHourTime=new Date().getTime()+5*1000*60*60;
+	console.log('next hour:',new Date(nextHourTime).format("yyyy-MM-dd hh:mm:ss"));
+	return new Date(nextHourTime);
+}
 function objToUrl(j) {
 	var k = [];
 	for (var a in j) {
@@ -129,8 +134,8 @@ function ajaxGetQiangPage(pageNum,pageSize,condition,callback){
 		async:true,
 		type:'get', 
 		data: objToUrl({
-			"startsTimeF": condition.startsTimeF ||(getNextHour().format('yyyy-MM-dd hh')+':00:00')
-			,"startsTimeT": condition.startsTimeT ||(getNextHour().format('yyyy-MM-dd hh')+':59:59')
+			"startsTimeF": condition.startsTimeF ||(new Date().format('yyyy-MM-dd hh:mm:ss'))
+			,"startsTimeT": condition.startsTimeT ||(getNextHour5().format('yyyy-MM-dd hh')+':59:59')
 			,"source": "1"
 			,"pageSize":pageSize
 			,"pageNum":pageNum
