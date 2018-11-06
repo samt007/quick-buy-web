@@ -204,14 +204,14 @@
 	{{@list}}
 	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 order-item" id="{{%_val.itemId}}">
 		<div class="thumbnail">
-		  <a href="http://detail.tmall.com/item.htm?id={{%_val.itemId}}" target="_blank"><img src="{{%_val.pic}}" alt="{{%_val.title}}"  class="img-responsive" style="width: 220px;max-height:220px;"></a>
+		  <a href="{{%_val.clickUrl}}" target="_blank"><img src="{{%_val.pic}}" alt="{{%_val.title}}"  class="img-responsive" style="width: 220px;max-height:220px;"></a>
 		  <div class="caption">
 			<div style="overflow: hidden; position: relative;">
-				<div class="price"><span>抢购价：</span><span class="qiang-price red-color">￥{{=_val.price}}</span></div>
-				<div class="amount"><span>库存：</span><span class="qiang-amount red-color">{{=_val.quantity}}</span></div>
+				<div class="price"><span>抢购价:</span><span class="qiang-price red-color">￥{{=_val.price}}</span></div>
+				<div class="amount"><span>库存:</span><span class="qiang-amount red-color">{{=_val.quantity}}</span></div>
 			</div>
 			<div>
-			<h5><a href="http://detail.tmall.com/item.htm?id={{%_val.itemId}}" target="_blank">{{%_val.title}}</a></h5>
+			<h5><a href="{{%_val.clickUrl}}" target="_blank">{{%_val.title}}</a></h5>
 			</div>
 			<div>
 			<p class="red-color">
