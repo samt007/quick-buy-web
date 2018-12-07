@@ -90,7 +90,7 @@
 			<h1>功能介绍</h1>
 			<hr style="border-color:#83C653; border-width: 2px" width="10%">
 			<p style="font-size: 1.1em;">"一键购物助手"是一款PC电脑端的，基于chrome内核的浏览器开发的一个插件。
-			它可以有效辅助您进行一键预约购买淘宝天猫的商品，并且附带辅助秒杀的功能。
+			<br/>它可以有效辅助您进行一键预约购买淘宝天猫的商品，目的是为了提高购买的操作效率，不用苦苦守候时间下单。
 			<br/><b>尤其适用于天猫倒计时商品的抢购，以及双11，618等购物狂欢节期间的预约下单购物！</b>
 			<br/>它承诺永久免费；而且，功能的运行方式是基于浏览器的插件，所以它<b>更安全，轻便，更适合大众玩家！</b>
 			<br/><span style="font-weight:bold;color:red;">安全第一，谨防盗版。请注意要从官网链接 http://kqmai.com 下载的版本才是正版！<span>
@@ -249,14 +249,17 @@
 	!sessionStorage['alertTimes'] && (sessionStorage['alertTimes'] = 0);
 	console.log('alertTimes',sessionStorage['alertTimes']);
     jQuery(function($) {
-		if (parseInt(sessionStorage['alertTimes'])==0) {
+		/*if (parseInt(sessionStorage['alertTimes'])==0) {
 			showAlert('<span style="color:red">警告：<br/><b>安全第一，谨防盗版！</b>鉴于最近在咸鱼有出售盗版插件，存在一定的安全隐患，已经严重影响到本插件的声誉。'+
-			'<br/>鉴于安全性的考虑，插件启用了用户系统。之前的用户已经修改密码！如需继续使用，请加QQ群：236120772 咨询。'+
+			'<br/>鉴于安全性的考虑，插件启用了用户系统。之前的用户已经修改密码！'+
 			'<br/>提示：3.7.0版本已经发布(2018.11.3)！</span>',function(idx){
 				layer.close(idx)
 			});
 			sessionStorage['alertTimes']=parseInt(sessionStorage['alertTimes'])+1;
 		};
+		if (parseInt(sessionStorage['alertTimes'])==0) {
+			window.location.href = 'http://kqmai.com/qiang.html'
+		}*/
     });
 	function showAlert(msg,callback){
 		layer.alert(msg,{zIndex:9999999991},callback)

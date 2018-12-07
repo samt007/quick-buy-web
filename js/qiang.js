@@ -2,9 +2,9 @@ $(function(){
 	window.T = window.t;
 	console.log('init!');
 	window.activePageNum = 0;
-	window.pageSize = 20;
+	window.pageSize = 40;
 	var condition = {};
-	$('#query-startsTimeF').val(new Date().format('yyyy-MM-dd hh:mm:ss'));
+	$('#query-startsTimeF').val(getNextHour().format('yyyy-MM-dd hh')+':00:00');
 	$('#query-startsTimeT').val(getNextHour5().format('yyyy-MM-dd hh')+':59:59');
 	if(window.location.href.indexOf('permission=admin')===-1){
 		$('#query-startsTimeF').attr("disabled","disabled");
@@ -104,7 +104,7 @@ Date.prototype.format = function (fmt) { //author: meizz
     return fmt;
 }
 function getNextHour(){
-	var nextHourTime=new Date().getTime()+1000*60*60;
+	var nextHourTime=new Date().getTime()+1000*60*30;
 	console.log('next hour:',new Date(nextHourTime).format("yyyy-MM-dd hh:mm:ss"));
 	return new Date(nextHourTime);
 }
@@ -134,7 +134,7 @@ function ajaxGetQiangPage(pageNum,pageSize,condition,callback){
 		async:true,
 		type:'get', 
 		data: objToUrl({
-			"startsTimeF": condition.startsTimeF ||(new Date().format('yyyy-MM-dd hh:mm:ss'))
+			"startsTimeF": condition.startsTimeF ||(getNextHour().format('yyyy-MM-dd hh')+':00:00')//(new Date().format('yyyy-MM-dd hh:mm:ss'))
 			,"startsTimeT": condition.startsTimeT ||(getNextHour5().format('yyyy-MM-dd hh')+':59:59')
 			,"source": "1"
 			,"pageSize":pageSize
